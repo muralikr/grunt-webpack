@@ -1,30 +1,51 @@
 # grunt-webpack [![Build Status](https://travis-ci.org/webpack-contrib/grunt-webpack.svg?branch=master)](https://travis-ci.org/webpack-contrib/grunt-webpack) [![codecov](https://codecov.io/gh/webpack-contrib/grunt-webpack/branch/master/graph/badge.svg)](https://codecov.io/gh/webpack-contrib/grunt-webpack)
 
-**This is the readme for version 2.0 which is currently available as beta version. For the 1.0 readme visit [here](https://github.com/webpack-contrib/grunt-webpack/tree/1.0).** 
-
 Use [webpack](https://github.com/webpack/webpack) with grunt.
+
+**This is the readme for version 2.0. For the 1.0 readme visit [here](https://github.com/webpack-contrib/grunt-webpack/tree/1.0).** 
 
 ## Getting Started
 
-Install this grunt plugin next to your project's [Gruntfile.js](http://gruntjs.com/getting-started) with: 
+Install this grunt plugin next to your project's [Gruntfile.js](http://gruntjs.com/getting-started). You also need to install webpack yourself, this grunt plugin does not install webpack itself.
 
 ```bash
-npm install grunt-webpack --save-dev
+yarn add webpack grunt-webpack
+```
+
+If you also want to use the webpack-dev-server task you also need to install `webpack-dev-server`
+
+```bash
+yarn add webpack-dev-server
 ```
 
 Then add this line to your project's `Gruntfile.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-webpack');
+module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({ ... });
+
+  grunt.loadNpmTasks('grunt-webpack');
+};
 ```
 
-## Tasks
+## Configuration
 
-There are two tasks available
-- `webpack`.
-- `webpack-dev-server`: see [webpack-dev-server doc](http://webpack.github.io/docs/webpack-dev-server.html#api) for available options.
+## webpack
 
-## Configuration Example
+### Configuration
+
+### Examples
+
+## webpack-dev-server
+
+### Configuration
+
+### Examples
+
+
+### old
 
 ``` javascript
 webpack: {
