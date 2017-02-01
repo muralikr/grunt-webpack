@@ -32,17 +32,59 @@ module.exports = function(grunt) {
 
 ## Configuration
 
-## webpack
+### Both Tasks
 
-### Configuration
+#### progress
+Type: `bool`
+Default: `true` (`false` if no TTY present)
 
-### Examples
+Activates or deactivates the progress output of webpack.
 
-## webpack-dev-server
+#### keepalive
+Type: `bool`
+Default: `false` (`true` if watch mode is used and for webpack-dev-server)
 
-### Configuration
+Activates or deactivates the progress output of webpack.
 
-### Examples
+### Webpack Task
+
+#### failOnError
+Type: `bool`
+Default: `true` (`false` if watch mode is used)
+
+> TODO this is not true currently, it is not disabled when watchmode used
+
+Terminate the grunt process when an error happens if set to `true`. If set to `false` the grunt process will not be immediately terminated on error and instead still run tasks scheduled to run after the webpack task.
+
+#### storeStatsTo
+Type: `string`
+Default: `null`
+
+When set the stats from webpack will be written to a variable with the name provided in this option. The variable can later be used inside of other grunt tasks with template tags <%= %>.
+
+```js
+...
+storeStatsTo: "webpackStats"
+
+...
+
+<%= webpackStats.hash %>
+...
+```
+
+> For more information about grunt template tags have a look at the [grunt docs][2].
+
+### Webpack-dev-server Task
+
+#### inline
+Type: `bool`
+Default: `false`
+
+Enable inline mode to include client scripts in bundle.
+
+> see the [webpack documentation][1] for more information about this option.
+
+## Examples
 
 
 ### old
@@ -105,3 +147,6 @@ webpack: {
 Copyright (c) JS Foundation
 
 MIT (http://opensource.org/licenses/mit-license.php)
+
+[1]: https://webpack.js.org/configuration/dev-server/#devserver-inline-cli-only
+[2]: http://gruntjs.com/api/grunt.template
